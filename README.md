@@ -1,7 +1,8 @@
 # Advertiser-Challenge
 This a javascript web app to call JSON and XML based API
 
-## Demo
+[Demo](http://challenge.com.s3-website-us-west-2.amazonaws.com)
+
 
 ## Development server
 
