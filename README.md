@@ -1,6 +1,8 @@
 # Advertiser-Challenge
 This a javascript web app to call JSON and XML based API
 
+## Demo
+
 ## Development server
 
 You could use an web server to run the app but in case you have node.js `http-server` could be handy to use
