@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="app.css">
+    <link href="lib/prism.css" rel="stylesheet" />
+  </head>
+  <body>
+
+  	<div class="topbar">
+		<div class="topbar-container">
+			Schibsted REST framework v3.1.1
+		</div>
+  	</div><!-- topbar -->
+
+    <div id="app">
+
+    	<div class="selection-bar">
+	    	<div class="left">
+				<h1>Advertiser List</h1>
+			</div><!-- .left -->
+			<div class="right">
+		    	<div class="dropdown">
+				  	<span class="dropbtn">
+				  		<label>JSON<button id="drop-menu-btn">&#8681;</button></label>
+		  			</span>
+				  <div id="drop-menu" class="dropdown-content">
+				  	<ul id="toggle-response">
+				  		<li>JSON</li>
+				  		<li>XML</li>
+				  	</ul>
+				  </div>
+				</div>
+			</div><!-- .right -->
+		</div><!-- .selection-bar -->
+
+    	<div id="code">
+    		<pre class="language-json"><code>GET /advertisers/?format=api</code></pre>
+    		<pre class="language-json">
+				<xmp id="code-area"></xmp>
+			</pre>
+    	</div><!-- #code -->
+
+    </div><!-- app -->
+    <script src="/modules/AdvertiserModule/AdvertiserModule.js"></script>
+    <script src="/modules/HttpService/HttpService.js"></script>
+    <script src="/app.js"></script>
+    <script src="lib/prism.js"></script>
+  </body>
+</html>

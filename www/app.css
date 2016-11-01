@@ -1,0 +1,136 @@
+button:active,
+button:focus,
+button.active {
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+body {
+  background-image: url(bg.png);
+  background-repeat: repeat-x;
+  margin:0;
+  padding: 0;
+  font-family: arial;
+}
+
+.topbar {
+  background: #2c2c2c;
+  color: #7d7d7d;
+  padding: 15px 0;
+  border-top: 5px solid #c30404;
+}
+
+.topbar-container {
+  max-width: 1024px;
+  margin: 0 auto;
+  font-family: arial;
+}
+
+#app {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.selection-bar {
+  margin-top: 40px;
+}
+
+.selection-bar h1 {
+  margin-bottom: 0;
+}
+
+.selection-bar .right,
+.selection-bar .left{
+  display: inline-block;
+  white-space: normal;
+}
+.selection-bar .right {
+    float: right;
+    vertical-align: super;
+    margin-top: 30px;
+}
+
+
+/* Dropdown Button */
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn button:hover, .dropbtn button:focus {
+    background-color: #3e8e41;
+}
+
+#drop-menu-btn {
+    background: none;
+    border: none;
+    color: #ffffff;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+
+.dropbtn {
+    background-color: #428bca;
+    border: 1px solid #357ebd !important;
+  border-radius: 5;
+  padding: 10px 15px;
+}
+.dropdown span, 
+.dropdown label ,
+.dropdown label button {
+  cursor: pointer;
+}
+.dropdown-content {
+  background-color: #ffffff;
+    border: 1px solid #dadada;
+    border-radius: 4px;
+    box-shadow: 0px 4px 11px 0px rgba(0,0,0,0.15);
+    right: 0;
+  top: 28px;
+}
+.dropdown-content ul li {
+  list-style-type: none;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.dropdown-content ul {
+  -webkit-margin-before: 0.5em;
+    -webkit-margin-after: 0.5;
+    -webkit-padding-start: 1em;
+}
