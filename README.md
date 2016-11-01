@@ -26,10 +26,14 @@ $ cd root project
 $ npm install
 $ npm run test
 ```
-Please note if you don't wanna have unit test running then no need to have `node_modules` installed and feel safe to delete the `package.json` and 'karma.conf.js' file
+Please note if you don't wanna have unit test running then no need to have `node_modules` installed and feel safe to delete the `package.json` and `karma.conf.js` file
 
 ## TODO on scale
 1- Minify assets
 2- Use CDN
 3- minimize HTTP requests
 4- Use Compression
+
+## Browsers compatibility
+Probably you might have some issues running the app on browser that don't support `ES6` yet, to get over it UPDATE YOUR BROWSER YAY! back to reality replace `let` and `const` with `var`.
+The reason I kept using `let` and `const` is to show where in which scope the variable can be used
