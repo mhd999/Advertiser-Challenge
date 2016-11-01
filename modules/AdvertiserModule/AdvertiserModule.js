@@ -1,6 +1,6 @@
 let prop;
 
-window.AdvertiserModule = {
+AdvertiserModule = {
 
 	props: {
 		toggleResponseBtn: document.getElementById("toggle-response"),
