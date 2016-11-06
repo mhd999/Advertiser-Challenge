@@ -8,7 +8,7 @@ button.active {
 }
 
 body {
-  background-image: url(bg.png);
+  background-image: url(../images/bg.png);
   background-repeat: repeat-x;
   margin:0;
   padding: 0;
@@ -52,6 +52,9 @@ body {
     margin-top: 30px;
 }
 
+#type-label {
+  text-transform: uppercase;
+}
 
 /* Dropdown Button */
 .dropbtn {

@@ -1,18 +1,23 @@
-let jsonCache;
-let xmlCache;
+var HttpService =  function() {
+	//define module api's
+	var services = {
+		httpAgent: httpAgent
+	};
 
-HttpService = {
+	var jsonCache,
+		xmlCache;
+
 	/**
 	* This is a function to call http end-points
 	* @method httpAgent
 	* @param {String} method - GET
 	* @param {String} url - http://end-point-url.com/v1/END-POINT
-	* @param {String} requestType - JSON, XML
+	* @param {String} requestType - json, xml
 	* @param {requestCallback} callback - The callback that handles the response.
 	* @return {bool} 
 	*/
-	httpAgent: function(method, url, requestType, callback) {
-		if(requestType === 'JSON' && jsonCache) {
+	function httpAgent(method, url, requestType, callback) {
+		if(requestType === 'json' && jsonCache) {
 			callback(jsonCache);
 			return true;
 		} else if(xmlCache) {
@@ -20,7 +25,7 @@ HttpService = {
 			return true;
 		}
 
-		const httpRequest = new XMLHttpRequest();
+		var httpRequest = new XMLHttpRequest();
 		if (!httpRequest) {
 	      callback('Cannot create an XMLHTTP instance');
 	      return false;
@@ -28,8 +33,17 @@ HttpService = {
 
      	httpRequest.onreadystatechange = function(){
      		if (httpRequest.readyState === XMLHttpRequest.DONE) {
-     			requestType === 'JSON' ? jsonCache = httpRequest.responseText : xmlCache =httpRequest.responseText;
-     			callback(httpRequest.responseText);
+     		
+     			var contentType = httpRequest.getResponseHeader('content-type');
+     			var response = {
+     				data: httpRequest.responseText,
+     				status: httpRequest.status,
+     				statusText: httpRequest.statusText,
+     				contentType: contentType
+     			}
+
+     			requestType === 'json' ? jsonCache = response : xmlCache = response;
+     			callback(response);
      			return true;
      		} else {
      			callback('Error calling the API');
@@ -39,4 +53,6 @@ HttpService = {
 	    httpRequest.open(method, url, true);
 	    httpRequest.send();
 	}
+
+	return services;
 };

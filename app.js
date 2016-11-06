@@ -1,4 +1,7 @@
 (function() {
-	AdvertiserModule.init();
+	//init instace of the AdvertiserModule
+	var advertiserModule = new AdvertiserModule();
+	
+	advertiserModule.init();
 	/* init other modules */
 })();

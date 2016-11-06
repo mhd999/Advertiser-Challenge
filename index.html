@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <title></title>
-    <link rel="stylesheet" type="text/css" href="app.css">
+    <link rel="stylesheet" type="text/css" href="style/app.css">
     <link href="lib/prism.css" rel="stylesheet" />
   </head>
   <body>
@@ -22,12 +22,15 @@
 			<div class="right">
 		    	<div class="dropdown">
 				  	<span class="dropbtn">
-				  		<label>JSON<button id="drop-menu-btn">&#8681;</button></label>
+				  		<label>
+				  			<span id="type-label"></span>
+				  			<button id="drop-menu-btn">&#8681;</button>
+			  			</label>
 		  			</span>
 				  <div id="drop-menu" class="dropdown-content">
 				  	<ul id="toggle-response">
-				  		<li>JSON</li>
-				  		<li>XML</li>
+				  		<li>json</li>
+				  		<li>xml</li>
 				  	</ul>
 				  </div>
 				</div>
@@ -36,15 +39,15 @@
 
     	<div id="code">
     		<pre class="language-json"><code>GET /advertisers/?format=api</code></pre>
-    		<pre class="language-json">
+    		<pre class="language-json"><div id="header"></div>
 				<xmp id="code-area"></xmp>
 			</pre>
     	</div><!-- #code -->
 
     </div><!-- app -->
-    <script src="/modules/AdvertiserModule/AdvertiserModule.js"></script>
-    <script src="/modules/HttpService/HttpService.js"></script>
-    <script src="/app.js"></script>
     <script src="lib/prism.js"></script>
+    <script src="/modules/HttpService/HttpService.js"></script>
+    <script src="/modules/AdvertiserModule/AdvertiserModule.js"></script>
+    <script src="/app.js"></script>
   </body>
 </html>

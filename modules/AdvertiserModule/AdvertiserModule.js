@@ -1,40 +1,60 @@
-let prop;
+var AdvertiserModule = function() {
+	//define module api's
+	var api = {
+		init: init
+	};
+	//init instace of the HttpService
+	var httpService = new HttpService();
 
-AdvertiserModule = {
-
-	props: {
+	var props = {
 		toggleResponseBtn: document.getElementById("toggle-response"),
 		dropMenuBtn: document.getElementById("drop-menu-btn"),
 		dropMenu: document.getElementById("drop-menu"),
-		codeArea: document.getElementById("code-area")
-	},
+		codeArea: document.getElementById("code-area"),
+		typeLabel: document.getElementById("type-label"),
+		headerData: document.getElementById("header"),
+	};
 
-	init: function() {
-		prop = this.props;
-		this.fetchData('JSON');
-		this.bindAction();
-	},
-
-	bindAction: function() {
-		prop.toggleResponseBtn.addEventListener("click", function(event) {
-			const requestType = event.target.innerHTML;
-			AdvertiserModule.fetchData(requestType);
+	function bindAction() {
+		props.toggleResponseBtn.addEventListener("click", function(event) {
+			var requestType = event.target.innerHTML;
+			fetchData(requestType);
 		});
 
-		prop.dropMenuBtn.addEventListener("click", function() {
-		 	prop.dropMenu.classList.toggle("show");
+		props.dropMenuBtn.addEventListener("click", function() {
+		 	props.dropMenu.classList.toggle("show");
 		});
-	},
-
-	fetchData: function(requestType) {
-		let url;
-		const placeholder = prop.codeArea;
-
-		requestType === 'JSON' ? url = '/mock/response.json' : url = '/mock/response.xml';
-
-		HttpService.httpAgent('GET', url, requestType, function(data) {
-			placeholder.innerHTML = data;
-		});
-		
 	}
+
+	function fetchData(requestType) {
+		var url,
+			codeArea = props.codeArea,
+	 		headerData = props.headerData,
+		 	typeLabel = props.typeLabel;
+		 	
+		
+		typeLabel.innerHTML = requestType;
+
+		requestType === 'json' ? url = '/mock/response.json' : url = '/mock/response.xml';
+
+		httpService.httpAgent('GET', url, requestType, function(response) {
+			codeArea.innerHTML = response.data;
+
+			var header = '';
+			header += '<code "class="language-json">'
+			header += 'HTTP&nbsp;' + response.status + '&nbsp;' + response.statusText + '<br>';
+			header += 'Vary: Accept <br>';
+			header += 'Allow: GET, POST, HEAD, OPTIONS <br>';
+			header += 'content-type:&nbsp;' +response.contentType;
+			header += '</code>';
+			headerData.innerHTML = header;
+		});
+	}
+
+	function init() {
+		fetchData('json');
+		bindAction();
+	}
+	
+	return api;
 };
